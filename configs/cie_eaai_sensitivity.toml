@@ -1,0 +1,74 @@
+[env]
+width = 16
+height = 12
+max_agvs = 24
+max_pickers = 12
+max_tasks = 80
+initial_agvs_min = 8
+initial_agvs_max = 14
+initial_pickers_min = 4
+initial_pickers_max = 7
+initial_tasks_min = 12
+initial_tasks_max = 24
+episode_steps = 256
+order_arrival_rate = 0.20
+order_cancel_probability = 0.005
+agent_join_probability = 0.015
+agent_leave_probability = 0.010
+deadline_min = 45
+deadline_max = 110
+step_penalty = 0.002
+contention_penalty = 0.02
+deadline_penalty = 0.25
+pickup_reward = 0.10
+delivery_reward = 1.0
+num_zones = 4
+task_hotspot_probability = 0.0
+arrival_profile = "stationary"
+agent_spawn_mode = "uniform_depot"
+picker_service_delay_min = 0
+picker_service_delay_max = 1
+scheduled_breakdown_step = -1
+scheduled_breakdown_count = 0
+picker_shift_step = -1
+picker_shift_leave_count = 0
+picker_shift_join_count = 0
+
+[train]
+total_steps = 2000000
+num_envs = 8
+rollout_steps = 256
+update_epochs = 4
+minibatch_size = 512
+learning_rate = 0.0003
+gamma = 0.99
+gae_lambda = 0.95
+ppo_clip = 0.2
+entropy_coef = 0.01
+value_coef = 0.5
+max_grad_norm = 0.5
+hidden_dim = 128
+encoder_layers = 2
+checkpoint_interval = 100000
+device = "auto"
+
+[model]
+coalition_top_k = 3
+num_groups = 4
+attention_heads = 4
+
+[evaluation]
+episodes = 200
+bootstrap_samples = 10000
+deterministic = true
+# Main-text sensitivity analysis: AGV breakdown dose-response and demand dose-response.
+scenario_names = [
+  "breakdown_000",
+  "breakdown_010",
+  "breakdown_025",
+  "breakdown_040",
+  "demand_050",
+  "demand_100",
+  "demand_200",
+  "demand_350",
+]
