@@ -13,7 +13,7 @@ from typing import Any
 
 import torch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.analysis import aggregate_reports, write_aggregate
 from open_hyper_warehouse.config import load_config
@@ -72,13 +72,13 @@ def main() -> None:
     if args.workers < 1 or args.workers > len(FORMAL_SEEDS):
         raise ValueError("workers must be between 1 and 6")
 
-    config_path = Path(args.config).resolve()
+    config_path = Path(args.config)
     config = load_config(config_path)
     scenarios = tuple(config.evaluation.scenario_names)
     if scenarios != EXPECTED_SCENARIOS:
         raise ValueError(f"sensitivity scenario mismatch: {scenarios}")
-    checkpoint_root = Path(args.checkpoints_root).resolve()
-    output = Path(args.output).resolve()
+    checkpoint_root = Path(args.checkpoints_root)
+    output = Path(args.output)
     checkpoints = {
         seed: checkpoint_root / f"seed_{seed}" / "final.pt" for seed in FORMAL_SEEDS
     }

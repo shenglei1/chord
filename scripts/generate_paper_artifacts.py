@@ -7,15 +7,15 @@ import json
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
-from open_hyper_warehouse.paper_artifacts import generate_artifacts
+from paper_artifacts import generate_artifacts
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results-root", default="results")
-    parser.add_argument("--output", default="results/paper_artifacts")
+    parser.add_argument("--output", default="figs/paper_artifacts")
     parser.add_argument("--uncertainty", choices=("ci95", "std"), default="ci95")
     parser.add_argument("--bootstrap-samples", type=int, default=10_000)
     parser.add_argument("--bootstrap-seed", type=int, default=2026)
@@ -41,10 +41,9 @@ def main() -> None:
         "status": audit["status"],
         "errors": len(audit["errors"]),
         "warnings": len(audit["warnings"]),
-        "output": str(Path(args.output).resolve()),
+        "output": str(Path(args.output)),
     }, indent=2))
 
 
 if __name__ == "__main__":
     main()
-

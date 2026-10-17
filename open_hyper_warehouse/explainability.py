@@ -436,7 +436,7 @@ def explain_checkpoint(
         )
     summary = {
         "algorithm": "chord_mappo",
-        "checkpoint": str(Path(checkpoint).resolve()),
+        "checkpoint": str(Path(checkpoint)),
         "training_seed": metadata["seed"],
         "learner_revision": metadata.get("learner_revision"),
         "action_decoder": metadata.get("action_decoder"),

@@ -183,7 +183,7 @@ def evaluate_checkpoint(
     report = {
         "algorithm": metadata["algorithm"],
         "training_seed": metadata["seed"],
-        "checkpoint": str(Path(checkpoint).resolve()),
+        "checkpoint": str(Path(checkpoint)),
         "parameter_count": int(metadata.get("parameter_count", policy.parameter_count())),
         "inference_latency_ms": latency_ms,
         "training_wall_seconds": metadata.get("wall_seconds"),

@@ -8,7 +8,7 @@ policies. Evaluation episodes must not be treated as independent training runs.
 
 ## Required evidence groups
 
-1. Main comparison across six complete decision systems and eight scenarios.
+1. Main comparison across six complete decision systems and six scenarios.
 2. Decoder-matched CHORD, Entity+CAHR, and Graph+CAHR encoder controls.
 3. Three-scenario decoder-package and capacity-context study.
 4. CHORD-only failure and demand dose-response evaluation.
@@ -48,7 +48,7 @@ paper number or derived CSV.
 - `results/mechanism_ablations/`: three mechanism variants and aggregates.
 - `results/sensitivity/`: failure and demand dose-response records.
 - `results/semantic_analysis/`: edge masking and case timelines.
-- `results/paper_artifacts/`: publication tables and figures.
+- `figs/paper_artifacts/`: generated publication tables and figure sources.
 
 Parameter counts and device-independent complexity may be compared across
 methods. Wall-clock latency from different machines must not be used as a

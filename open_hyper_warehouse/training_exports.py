@@ -96,8 +96,8 @@ def export_training_data(root: str | Path) -> dict[str, Any]:
         "training_curve_rows": len(curve_rows),
         "training_runs": len(efficiency_rows),
         "complete_runs": sum(bool(row["run_complete"]) for row in efficiency_rows),
-        "training_curves": str(curves_path.resolve()),
-        "training_efficiency": str(efficiency_path.resolve()),
+        "training_curves": str(curves_path),
+        "training_efficiency": str(efficiency_path),
     }
     target = root / "training_export_manifest.json"
     temporary = target.with_suffix(".json.tmp")

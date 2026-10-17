@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.analysis import aggregate_reports, write_aggregate
 from open_hyper_warehouse.paper_results import write_eaai_tables

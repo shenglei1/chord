@@ -59,5 +59,5 @@ Graph+CAHR uses a binary 2-section encoder followed by the same capacity-aware
 triple-candidate reservation decoder. Entity+CAHR uses set pooling followed by
 that decoder. Their encoder and decoder descriptions are therefore compatible:
 the controls remove explicit hyperedge message passing, not triple candidates.
-They are trained once per seed and evaluated on all Core-8 scenarios; semantic
+They are trained once per seed and evaluated on all Core-6 scenarios; semantic
 edge masking is performed only for CHORD in `robot_breakdown`.

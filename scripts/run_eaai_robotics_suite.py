@@ -9,7 +9,7 @@ import sys
 
 import torch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.analysis import aggregate_reports, write_aggregate
 from open_hyper_warehouse.baselines import (
@@ -31,7 +31,6 @@ from open_hyper_warehouse.eaai_protocol import (
     infer_protocol,
     protocol_blocks,
     protocol_scenarios,
-    validate_core8_protocol,
     validate_eaai_protocol,
 )
 from open_hyper_warehouse.evaluation import evaluate_checkpoint, evaluate_heuristic
@@ -68,11 +67,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Locked EAAI Applied Robotic Cases experiment matrix"
     )
-    parser.add_argument("--config", default="configs/eaai_core8_cuda.toml")
+    parser.add_argument("--config", default="configs/eaai_core6_cuda.toml")
     parser.add_argument("--seeds", type=int, nargs="+", default=list(EAAI_FORMAL_SEEDS))
     parser.add_argument(
         "--scenario-set",
-        choices=("auto", "core8", "full12"),
+        choices=("auto", "core6"),
         default="auto",
         help="auto infers the locked protocol from the config scenario list",
     )
@@ -89,7 +88,6 @@ def main() -> None:
     args = parser.parse_args()
 
     validate_eaai_protocol()
-    validate_core8_protocol()
     validate_main_registry()
     config_path = Path(args.config)
     cfg = load_config(config_path)
@@ -279,7 +277,7 @@ def main() -> None:
         "provenance": {
             spec.paper_label: spec.to_dict() for spec in EAAI_MAIN_METHODS
         },
-        "config": str(config_path.resolve()),
+        "config": str(config_path),
         "config_sha256": hashlib.sha256(config_path.read_bytes()).hexdigest(),
     }
     (root / f"{args.section}_manifest.json").write_text(

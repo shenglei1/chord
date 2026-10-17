@@ -18,7 +18,7 @@ import sys
 
 import torch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.analysis import aggregate_reports, write_aggregate
 from open_hyper_warehouse.config import load_config
@@ -127,7 +127,7 @@ def main() -> None:
         ],
         "training_seeds": args.seeds,
         "statistical_unit": "independent policy-training seed",
-        "config": str(config_path.resolve()),
+        "config": str(config_path),
         "config_sha256": hashlib.sha256(config_path.read_bytes()).hexdigest(),
         "scenario_parameters": {
             name: asdict(make_scenario(cfg.env, name))

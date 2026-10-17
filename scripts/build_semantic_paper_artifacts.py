@@ -73,6 +73,12 @@ def parse_args() -> argparse.Namespace:
         help="Figure formats. PDF is the preferred LaTeX artifact.",
     )
     parser.add_argument(
+        "--figures-output",
+        type=Path,
+        default=Path("figs/semantic_analysis"),
+        help="Directory for generated figures (default: figs/semantic_analysis).",
+    )
+    parser.add_argument(
         "--skip-plots",
         action="store_true",
         help="Generate all processed CSV/JSON/LaTeX outputs without importing matplotlib.",
@@ -535,20 +541,29 @@ def configure_matplotlib() -> Any:
     try:
         import matplotlib as mpl
         import matplotlib.pyplot as plt
+        from matplotlib import font_manager
     except ModuleNotFoundError as exc:
         raise RuntimeError(
             "matplotlib is required for figures. Install the project 'plot' extra "
             "or rerun with --skip-plots to generate only tables."
         ) from exc
+    font_manager.findfont("Arial", fallback_to_default=False)
     mpl.rcParams.update(
         {
             "font.family": "sans-serif",
-            "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
+            "font.sans-serif": ["Arial", "Helvetica"],
+            # These panels are inserted at about 97% of their native size.
+            # Eight-point source text consequently remains comfortably above
+            # 7 pt in the final two-column manuscript.
             "font.size": 8.0,
             "axes.labelsize": 8.5,
-            "legend.fontsize": 7.0,
-            "xtick.labelsize": 7.0,
-            "ytick.labelsize": 7.0,
+            "legend.fontsize": 8.0,
+            "xtick.labelsize": 8.0,
+            "ytick.labelsize": 8.0,
+            "mathtext.fontset": "custom",
+            "mathtext.rm": "Arial",
+            "mathtext.it": "Arial:italic",
+            "mathtext.bf": "Arial:bold",
             "axes.linewidth": 0.7,
             "lines.linewidth": 1.35,
             "lines.markersize": 4.5,
@@ -594,7 +609,9 @@ def plot_masking_sensitivity(plt: Any, rows: list[dict[str, Any]], figures: Path
         )
     ax.set_xticks(x, [EVENT_LABELS[event] for event in EVENT_ORDER])
     ax.set_xlabel("Resource-disruption stage")
-    ax.set_ylabel(r"Top-edge change in selection probability ($|\Delta p|$)")
+    # Use the Unicode glyph so the exported PDF contains only the selected
+    # Arial/Helvetica family instead of Matplotlib's DejaVu math fallback.
+    ax.set_ylabel("Top-edge change in selection probability |Δp|")
     ax.set_ylim(bottom=0.0)
     ax.grid(axis="y", color="#D9D9D9", linewidth=0.5)
     ax.spines[["top", "right"]].set_visible(False)
@@ -730,10 +747,10 @@ def write_summary(
 
 def main() -> None:
     args = parse_args()
-    root = args.root.resolve()
+    root = args.root
     tables = root / "tables"
     processed = root / "processed"
-    figures = root / "figures"
+    figures = args.figures_output
     tables.mkdir(parents=True, exist_ok=True)
     processed.mkdir(parents=True, exist_ok=True)
 

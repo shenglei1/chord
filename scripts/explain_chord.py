@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.explainability import explain_checkpoint, write_explanation
 
@@ -38,7 +38,7 @@ def main() -> None:
         summaries.append(summary)
         rows.extend(checkpoint_rows)
     write_explanation(summaries, rows, args.output)
-    print(f"wrote {Path(args.output).resolve()}")
+    print(f"wrote {Path(args.output)}")
 
 
 if __name__ == "__main__":

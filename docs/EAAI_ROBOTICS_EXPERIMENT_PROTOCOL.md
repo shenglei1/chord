@@ -25,7 +25,7 @@ and resource availability change.
 - Method-specific settings are limited to intrinsic mechanisms. MOHITO retains
   its replay learner and uses the locked 512-transition replay cadence.
 
-## Core-8 scenarios
+## Core-6 scenarios
 
 | Scenario | Evaluation purpose |
 |---|---|
@@ -33,8 +33,6 @@ and resource availability change.
 | `unseen_small` | Joint scale-load transfer to a smaller operating instance |
 | `unseen_large` | Joint scale-load transfer to a larger operating instance |
 | `agv_heavy_ratio` | Picker-scarce role imbalance |
-| `picker_heavy_ratio` | AGV-scarce role imbalance |
-| `picker_shift` | Scheduled picker replacement |
 | `fixed_team_dynamic_orders` | Task openness with a fixed workforce |
 | `robot_breakdown` | Targeted interruption and restoration of active AGV capacity |
 

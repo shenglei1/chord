@@ -20,13 +20,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0"]
 plot = ["matplotlib>=3.8,<4"]
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["open_hyper_warehouse*"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "-q"

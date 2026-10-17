@@ -7,8 +7,7 @@ the open warehouse decision process; they do not convert the empirical EAAI
 hypothesis into a theorem of algorithmic superiority.
 
 The implementation provides the structural objects needed by the theory. The
-paper must state assumptions and prove the results below; unit tests are not a
-substitute for proofs.
+paper must state assumptions and prove the results below.
 
 ## 1. Random-finite-set open warehouse game
 

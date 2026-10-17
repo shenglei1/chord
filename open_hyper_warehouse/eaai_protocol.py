@@ -10,62 +10,43 @@ class EaaiBlock:
     engineering_question: str
 
 
-# Locked before publication-scale runs.  These blocks deliberately distinguish
-# capacity generalization, staffing changes, order-process uncertainty and
-# physical/layout disruptions so that one favorable stress case cannot stand
-# in for the complete applied-robotics claim.
+# Locked six-scenario protocol used by the paper and publication-scale runs.
 EAAI_BLOCKS = (
-    EaaiBlock(
-        "nominal_and_cardinality_transfer",
-        ("in_distribution", "unseen_small", "unseen_large"),
-        "Can one released controller operate at unseen fleet, workforce and backlog sizes?",
-    ),
-    EaaiBlock(
-        "fleet_and_workforce_reconfiguration",
-        ("agv_heavy_ratio", "picker_heavy_ratio", "high_churn", "picker_shift"),
-        "Can dispatch continue during fleet imbalance, charging/maintenance and shift turnover?",
-    ),
-    EaaiBlock(
-        "online_demand_and_service_variability",
-        ("fixed_team_dynamic_orders", "peak_demand", "high_cancellation"),
-        "Can the controller absorb open order streams, cancellations and demand peaks?",
-    ),
-    EaaiBlock(
-        "robot_reconfiguration_and_compound_disruption",
-        ("robot_breakdown", "combined_disruption"),
-        "Does coordination reconfigure after a repairable robot failure and combined stress?",
-    ),
-)
-
-# Deliberately excluded from the primary paper matrix.  They remain available
-# in scenarios.py for optional sensitivity work, but cannot silently enter an
-# EAAI main/ablation table or checkpoint-selection loop.
-EAAI_EXCLUDED_DIAGNOSTICS = ("slow_pickers", "spatial_skew", "large_layout")
-
-# Minimal primary matrix for the six-seed EAAI paper. Each scenario isolates
-# one part of the central claim; correlated demand/process stresses remain in
-# the Full-12 supplementary robustness matrix.
-EAAI_CORE8_BLOCKS = (
     EaaiBlock(
         "nominal_and_cardinality_transfer",
         ("in_distribution", "unseen_small", "unseen_large"),
         "Can one released controller operate at unseen team and backlog sizes?",
     ),
     EaaiBlock(
-        "typed_workforce_imbalance",
-        ("agv_heavy_ratio", "picker_heavy_ratio"),
-        "Does explicit typed coalition modelling identify the scarce role?",
+        "typed_resource_imbalance",
+        ("agv_heavy_ratio",),
+        "Can dispatch account for a picker-scarce team composition?",
     ),
     EaaiBlock(
-        "agent_and_task_openness",
-        ("picker_shift", "fixed_team_dynamic_orders"),
-        "Can scheduled workforce turnover and task openness be isolated under a common policy?",
+        "task_set_dynamics",
+        ("fixed_team_dynamic_orders",),
+        "Can dispatch handle a changing task set under a fixed team?",
     ),
     EaaiBlock(
         "coalition_reconfiguration",
         ("robot_breakdown",),
-        "Does the service coalition dissolve and reform after failure and repair?",
+        "Does the service coalition reconfigure after interruption and restoration?",
     ),
+)
+
+# Deliberately excluded from the primary paper matrix.  They remain available
+# in scenarios.py for optional sensitivity work, but cannot silently enter an
+# EAAI main/ablation table or checkpoint-selection loop.
+EAAI_EXCLUDED_DIAGNOSTICS = (
+    "picker_heavy_ratio",
+    "high_churn",
+    "picker_shift",
+    "peak_demand",
+    "high_cancellation",
+    "combined_disruption",
+    "slow_pickers",
+    "spatial_skew",
+    "large_layout",
 )
 
 # The first three entries are the explicitly labelled pilot subset.  Seed 8191
@@ -79,7 +60,7 @@ EAAI_FORMAL_SEEDS = (1, 45, 789, 2027, 4096, 8191)
 # physical unit.  A paper must cite the source used to calibrate each range.
 REALISM_ASSUMPTIONS = {
     "order_process": {
-        "implementation": "Poisson arrivals with stationary, mid-shift peak and two-wave profiles",
+        "implementation": "stochastic arrivals and cancellations within the selected regimes",
         "paper_obligation": "report the chosen step-to-minute mapping and cite the order-log source",
     },
     "robot_availability": {
@@ -87,16 +68,16 @@ REALISM_ASSUMPTIONS = {
         "paper_obligation": "map probabilities and repair duration to maintenance/charging records",
     },
     "human_service": {
-        "implementation": "picker shift replacement and bounded stochastic pick delay",
-        "paper_obligation": "justify delay and shift ranges with time-study data or literature",
+        "implementation": "bounded stochastic pick delay",
+        "paper_obligation": "justify delay ranges with time-study data or literature",
     },
     "order_cancellation": {
         "implementation": "per-step cancellation hazard before pickup",
         "paper_obligation": "report sensitivity and the implied episode-level cancellation rate",
     },
     "layout": {
-        "implementation": "nominal, enlarged, left-depot hotspot and split-depot layouts",
-        "paper_obligation": "publish every map dimension and depot/hotspot rule",
+        "implementation": "the configured warehouse grid used by the six evaluation regimes",
+        "paper_obligation": "publish the map dimensions and depot rules",
     },
 }
 
@@ -129,64 +110,41 @@ def all_eaai_scenarios() -> list[str]:
     return [scenario for block in EAAI_BLOCKS for scenario in block.scenarios]
 
 
-def core8_eaai_scenarios() -> list[str]:
-    return [scenario for block in EAAI_CORE8_BLOCKS for scenario in block.scenarios]
+def core6_eaai_scenarios() -> list[str]:
+    return all_eaai_scenarios()
 
 
 def protocol_scenarios(name: str) -> list[str]:
-    if name == "core8":
-        return core8_eaai_scenarios()
-    if name == "full12":
-        return all_eaai_scenarios()
+    if name == "core6":
+        return core6_eaai_scenarios()
     raise KeyError(f"unknown EAAI scenario set {name!r}")
 
 
 def protocol_blocks(name: str) -> tuple[EaaiBlock, ...]:
-    if name == "core8":
-        return EAAI_CORE8_BLOCKS
-    if name == "full12":
+    if name == "core6":
         return EAAI_BLOCKS
     raise KeyError(f"unknown EAAI scenario set {name!r}")
 
 
 def infer_protocol(scenarios: list[str]) -> str:
-    for name in ("core8", "full12"):
-        if scenarios == protocol_scenarios(name):
-            return name
-    raise ValueError(
-        "evaluation scenarios must exactly match the locked Core-8 or Full-12 order"
-    )
+    if scenarios == core6_eaai_scenarios():
+        return "core6"
+    raise ValueError("evaluation scenarios must exactly match the locked Core-6 order")
 
 
 def validate_eaai_protocol() -> None:
     scenarios = all_eaai_scenarios()
     if len(scenarios) != len(set(scenarios)):
         raise ValueError("EAAI scenario blocks must be disjoint")
-    if "in_distribution" not in scenarios:
-        raise ValueError("EAAI protocol requires a nominal operating point")
-    if not {"unseen_small", "unseen_large", "robot_breakdown", "picker_shift"} <= set(scenarios):
-        raise ValueError("EAAI protocol is missing a required deployment stress")
-    if len(scenarios) != 12:
-        raise ValueError("EAAI Full-12 supplementary protocol must contain 12 scenarios")
-    if set(scenarios) & set(EAAI_EXCLUDED_DIAGNOSTICS):
-        raise ValueError("diagnostic-only scenarios leaked into the EAAI primary protocol")
-
-
-def validate_core8_protocol() -> None:
-    scenarios = core8_eaai_scenarios()
-    if len(scenarios) != 8 or len(scenarios) != len(set(scenarios)):
-        raise ValueError("EAAI Core-8 protocol must contain eight distinct scenarios")
     required = {
         "in_distribution",
         "unseen_small",
         "unseen_large",
         "agv_heavy_ratio",
-        "picker_heavy_ratio",
-        "picker_shift",
         "fixed_team_dynamic_orders",
         "robot_breakdown",
     }
-    if set(scenarios) != required:
-        raise ValueError("EAAI Core-8 protocol drifted from the preregistered set")
-    if not set(scenarios) <= set(all_eaai_scenarios()):
-        raise ValueError("Core-8 must be a strict subset of Full-12")
+    if len(scenarios) != 6 or set(scenarios) != required:
+        raise ValueError("EAAI Core-6 protocol drifted from the locked scenario set")
+    if set(scenarios) & set(EAAI_EXCLUDED_DIAGNOSTICS):
+        raise ValueError("excluded scenarios leaked into the EAAI Core-6 protocol")

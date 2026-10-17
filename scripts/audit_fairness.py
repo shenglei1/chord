@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 import numpy as np
 import torch
@@ -22,7 +22,7 @@ ALGORITHMS = list(EAAI_MAIN_LEARNED_KEYS)
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="configs/eaai_core8_cuda.toml")
+    parser.add_argument("--config", default="configs/eaai_core6_cuda.toml")
     parser.add_argument("--output", help="optional JSON artifact path")
     args = parser.parse_args()
     cfg = load_config(args.config)

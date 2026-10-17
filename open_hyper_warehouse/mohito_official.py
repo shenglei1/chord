@@ -33,7 +33,7 @@ MOHITO_COMMIT = "105ddccbacc92953a7aa6bd0d19f8ec299f7476d"
 
 
 def _load_official_modules():
-    root = Path(__file__).resolve().parents[1]
+    root = Path(".")
     package = root / "external" / "mohito-public" / "wildfire" / "mohito"
     if not package.exists():
         raise RuntimeError(

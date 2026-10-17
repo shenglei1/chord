@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, ".")
 
 from open_hyper_warehouse.config import load_config
 from open_hyper_warehouse.trainer import train_algorithm
@@ -18,7 +18,7 @@ def main() -> None:
         "chord_no_reservation", "chord_capacity_factorized", "chord_no_capacity",
         "entity_cahr", "graph_cahr",
     ])
-    parser.add_argument("--config", default="configs/eaai_core8_smoke.toml")
+    parser.add_argument("--config", required=True)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--output", default="results")
     args = parser.parse_args()

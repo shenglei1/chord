@@ -32,7 +32,7 @@ MILP trainings.
 | Travel / delivery | grid moves / deliveries | grid moves per delivery, **not metres** |
 | Utilization | busy active-agent steps / active-agent steps | dispatch utilization |
 
-`orders_created` is not currently exported. The Core8 CSVs are internally
+`orders_created` is not currently exported. The Core6 CSVs are internally
 consistent and imply that every offered order was admitted in those runs. For
 the `demand_350` sensitivity condition, however, an admission rate is needed to
 rule out task-slot saturation. Add `orders_created` or `rejected_orders` before
@@ -42,14 +42,14 @@ CHORD policies do not need retraining.
 
 ## Main-text artifacts
 
-1. `table_main_results_seed_level.csv`: absolute primary results for all eight
+1. `table_main_results_seed_level.csv`: absolute primary results for all six
    scenarios. Claim: descriptive performance of complete decision systems
    under the tested open-resource and open-order conditions. Report mean and
    95% CI over six training seeds and retain conditions where CHORD is not best.
 2. `fig_main_primary_metrics`: four-panel absolute performance plot. X-axis:
-   categorical Core8 scenarios. Y-axes: native metric units with zero included;
+   categorical Core6 scenarios. Y-axes: native metric units with zero included;
    ratio panels use [0, 1]. Claim: operational performance across scenarios.
-3. `fig_chord_oriented_effects`: four-panel effect plot. X-axis: Core8
+3. `fig_chord_oriented_effects`: four-panel effect plot. X-axis: Core6
    scenarios. Y-axis: direction-normalized CHORD-minus-baseline difference, so
    positive always favors CHORD. Claim: magnitude and uncertainty of advantage.
 4. `fig_scale_generalization`: unseen-small → training distribution →
@@ -93,7 +93,7 @@ environment rather than embedded in the image.
 
 The three-scene ablation runner generates evaluation seeds from scenario
 position. `agv_heavy_ratio` and `robot_breakdown` occupy different positions in
-Core8 and the three-scene suite. The current means and seed-level intervals are
+Core6 and the three-scene suite. The current means and seed-level intervals are
 valid descriptive results, but the phrase “identical evaluation trajectories”
 and strict paired-trajectory inference are not. To use that claim, reevaluate
 all existing CHORD and ablation checkpoints with one common three-scene order.
@@ -112,7 +112,7 @@ Audit tables without plotting:
 ```powershell
 python -u .\scripts\generate_paper_artifacts.py `
   --results-root .\results `
-  --output .\results\paper_artifacts `
+  --output .\figs\paper_artifacts `
   --uncertainty ci95 `
   --audit-only
 ```
@@ -122,7 +122,7 @@ Generate PDF, SVG and PNG figures with 95% CIs:
 ```powershell
 python -u .\scripts\generate_paper_artifacts.py `
   --results-root .\results `
-  --output .\results\paper_artifacts `
+  --output .\figs\paper_artifacts `
   --uncertainty ci95 `
   --formats pdf svg png
 ```
@@ -130,3 +130,20 @@ python -u .\scripts\generate_paper_artifacts.py `
 For mean ± standard deviation, replace `--uncertainty ci95` with
 `--uncertainty std`. Do not combine CI and standard-deviation error bars in the
 same figure.
+
+Generate the twelve numbered panels currently referenced as Figs. 4, 7, 11,
+and 12 in the EAAI manuscript:
+
+```powershell
+python -u .\scripts\generate_eaai_numbered_figures.py `
+  --results-root .\results `
+  --output .\figs\paper_artifacts\eaai_numbered_figures `
+  --formats pdf svg png
+```
+
+The command reads, without modifying, the matched-encoder aggregate, paired
+CHORD-minus-control effects, and sensitivity aggregate.  It writes
+`FIG4A`--`FIG4D`, `FIG7A`--`FIG7D`, and `FIG11A`--`FIG12B` in each requested
+format.  PDF is the LaTeX artwork; SVG is the editable vector copy; PNG is the
+600-dpi preview.  `figure_provenance.csv` and `figure_provenance.json` preserve
+the source filters and input hashes.
