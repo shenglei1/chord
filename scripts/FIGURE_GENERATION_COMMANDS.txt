@@ -1,0 +1,108 @@
+CHORD-CAHR 论文图件生成命令与输出对应表
+========================================
+
+一、运行位置与基本要求
+----------------------
+
+1. 请在 PyCharm Terminal 中进入 code1-1 项目根目录后再运行命令。
+2. PyCharm 应选择已经安装 requirements.txt 所列依赖的 Python 解释器。
+3. 所有脚本均使用相对路径：英文图输出到 figs/，中文图输出到 figs-zh/。
+4. 算法名称在中文图中仍保留英文，其他可见标签使用中文。
+5. 绘图脚本读取 results/ 中的归档实验结果，不会修改实验结果文件。
+
+
+二、一次生成全部英文图件（推荐）
+--------------------------------
+
+命令：
+python -u scripts/generate_all_figures.py
+
+输出目录：figs/
+对应图片：
+Figure_3A.pdf、Figure_3B.pdf、Figure_3L.pdf；
+Figure_4A.pdf、Figure_4B.pdf、Figure_4L.pdf；
+Figure_5A.pdf、Figure_5B.pdf、Figure_5C.pdf、Figure_5D.pdf、Figure_5L.pdf；
+Figure_6A.pdf、Figure_6B.pdf、Figure_6C.pdf、Figure_6D.pdf、Figure_6L.pdf；
+Figure_7A.pdf、Figure_7B.pdf、Figure_7C.pdf、Figure_7D.pdf、Figure_7L.pdf；
+Figure_8A.pdf、Figure_8B.pdf、Figure_8C.pdf、Figure_8D.pdf；
+Figure_9A.pdf、Figure_9B.pdf；
+Figure_B_1A.pdf、Figure_B_1B.pdf、Figure_B_1L.pdf；
+Figure_D_1A.pdf、Figure_D_1B.pdf；
+Figure_J_1A.pdf、Figure_J_1B.pdf、Figure_J_2A.pdf、Figure_J_2B.pdf。
+
+
+三、一次生成全部中文图件（推荐）
+--------------------------------
+
+命令：
+python -u scripts-zh/generate_all_figures.py
+
+输出目录：figs-zh/
+对应图片：文件名与上面的 36 个英文 PDF 完全一致。中文图保留英文算法
+名称，其余可见标签使用中文。
+
+
+四、按图组生成英文图件
+----------------------
+
+python -u scripts/generate_all_figures.py --group figure3
+→ figs/Figure_3A.pdf、Figure_3B.pdf、Figure_3L.pdf。
+
+python -u scripts/generate_all_figures.py --group figure4
+→ figs/Figure_4A.pdf、Figure_4B.pdf、Figure_4L.pdf。
+
+python -u scripts/generate_all_figures.py --group figure5
+→ figs/Figure_5A.pdf、Figure_5B.pdf、Figure_5C.pdf、Figure_5D.pdf、
+  Figure_5L.pdf。
+
+python -u scripts/generate_all_figures.py --group figure6
+→ figs/Figure_6A.pdf、Figure_6B.pdf、Figure_6C.pdf、Figure_6D.pdf、
+  Figure_6L.pdf。
+
+python -u scripts/generate_all_figures.py --group figure7
+→ figs/Figure_7A.pdf、Figure_7B.pdf、Figure_7C.pdf、Figure_7D.pdf、
+  Figure_7L.pdf。
+
+python -u scripts/generate_all_figures.py --group figure8
+→ figs/Figure_8A.pdf、Figure_8B.pdf、Figure_8C.pdf、Figure_8D.pdf。
+
+python -u scripts/generate_all_figures.py --group figure9
+→ figs/Figure_9A.pdf、Figure_9B.pdf。
+
+python -u scripts/generate_all_figures.py --group appendix-b
+→ figs/Figure_B_1A.pdf、Figure_B_1B.pdf、Figure_B_1L.pdf。
+
+python -u scripts/generate_all_figures.py --group appendix-d
+→ figs/Figure_D_1A.pdf、Figure_D_1B.pdf。
+
+python -u scripts/generate_all_figures.py --group appendix-j
+→ figs/Figure_J_1A.pdf、Figure_J_1B.pdf、Figure_J_2A.pdf、Figure_J_2B.pdf。
+
+
+五、按图组生成中文图件
+----------------------
+
+中文图使用相同的 group 名称，将 scripts/ 替换为 scripts-zh/ 即可：
+
+python -u scripts-zh/generate_all_figures.py --group figure3
+python -u scripts-zh/generate_all_figures.py --group figure4
+python -u scripts-zh/generate_all_figures.py --group figure5
+python -u scripts-zh/generate_all_figures.py --group figure6
+python -u scripts-zh/generate_all_figures.py --group figure7
+python -u scripts-zh/generate_all_figures.py --group figure8
+python -u scripts-zh/generate_all_figures.py --group figure9
+python -u scripts-zh/generate_all_figures.py --group appendix-b
+python -u scripts-zh/generate_all_figures.py --group appendix-d
+python -u scripts-zh/generate_all_figures.py --group appendix-j
+
+每条命令生成与英文分组同名的 PDF，并写入 figs-zh/。例如 figure5
+会生成 Figure_5A.pdf--Figure_5D.pdf 以及 Figure_5L.pdf。
+
+
+六、补充说明
+------------
+
+generate_all_figures.py 会按所选 group 调用必要脚本并检查该组最终 PDF；
+不指定 --group 时生成全部图件。
+paper_artifacts/ 和 semantic_analysis/ 下的 PDF、SVG、PNG 是中间产物；
+论文直接使用的最终 PDF 位于 figs/ 或 figs-zh/ 顶层。

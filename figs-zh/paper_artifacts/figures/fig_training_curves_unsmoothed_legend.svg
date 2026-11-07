@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="522pt" height="39.6pt" viewBox="0 0 522 39.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T12:16:55.843670</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 39.6 
+L 522 39.6 
+L 522 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="legend_1">
+   <g id="line2d_1">
+    <path d="M 117.308672 12.136641 
+L 126.308672 12.136641 
+L 135.308672 12.136641 
+" style="fill: none; stroke: #0072b2; stroke-width: 1.35; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="140.258672" y="15.286641" transform="rotate(-0 140.258672 15.286641)">CHORD-CAHR</text>
+   </g>
+   <g id="line2d_2">
+    <path d="M 117.308672 26.068359 
+L 126.308672 26.068359 
+L 135.308672 26.068359 
+" style="fill: none; stroke-dasharray: 1.35,2.2275; stroke-dashoffset: 0; stroke: #009e73; stroke-width: 1.35"/>
+   </g>
+   <g id="text_2">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="140.258672" y="29.218359" transform="rotate(-0 140.258672 29.218359)">Entity-MAPPO</text>
+   </g>
+   <g id="line2d_3">
+    <path d="M 213.638203 12.136641 
+L 222.638203 12.136641 
+L 231.638203 12.136641 
+" style="fill: none; stroke-dasharray: 4.995,2.16; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.35"/>
+   </g>
+   <g id="text_3">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="236.588203" y="15.286641" transform="rotate(-0 236.588203 15.286641)">PLATO-faithful</text>
+   </g>
+   <g id="line2d_4">
+    <path d="M 213.638203 26.068359 
+L 222.638203 26.068359 
+L 231.638203 26.068359 
+" style="fill: none; stroke-dasharray: 4.995,2.16; stroke-dashoffset: 0; stroke: #e69f00; stroke-width: 1.35"/>
+   </g>
+   <g id="text_4">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="236.588203" y="29.218359" transform="rotate(-0 236.588203 29.218359)">Graph-MAPPO</text>
+   </g>
+   <g id="line2d_5">
+    <path d="M 311.601797 12.136641 
+L 320.601797 12.136641 
+L 329.601797 12.136641 
+" style="fill: none; stroke-dasharray: 8.64,2.16,1.35,2.16; stroke-dashoffset: 0; stroke: #cc79a7; stroke-width: 1.35"/>
+   </g>
+   <g id="text_5">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="334.551797" y="15.286641" transform="rotate(-0 334.551797 15.286641)">MOHITO-official</text>
+   </g>
+  </g>
+ </g>
+</svg>

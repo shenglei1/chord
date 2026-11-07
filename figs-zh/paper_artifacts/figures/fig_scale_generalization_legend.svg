@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="522pt" height="39.6pt" viewBox="0 0 522 39.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T12:16:48.503549</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 39.6 
+L 522 39.6 
+L 522 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="legend_1">
+   <g id="line2d_1">
+    <path d="M 107.02125 12.136641 
+L 116.02125 12.136641 
+L 125.02125 12.136641 
+" style="fill: none; stroke: #0072b2; stroke-width: 1.35; stroke-linecap: square"/>
+    <defs>
+     <path id="mf885bd9684" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: #0072b2"/>
+    </defs>
+    <g>
+     <use xlink:href="#mf885bd9684" x="116.02125" y="12.136641" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="text_1">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="129.97125" y="15.286641" transform="rotate(-0 129.97125 15.286641)">CHORD-CAHR</text>
+   </g>
+   <g id="line2d_2">
+    <path d="M 107.02125 26.068359 
+L 116.02125 26.068359 
+L 125.02125 26.068359 
+" style="fill: none; stroke-dasharray: 1.35,2.2275; stroke-dashoffset: 0; stroke: #009e73; stroke-width: 1.35"/>
+    <defs>
+     <path id="m4d93bda860" d="M 0 -2 
+L -2 2 
+L 2 2 
+z
+" style="stroke: #009e73; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#m4d93bda860" x="116.02125" y="26.068359" style="fill: #009e73; stroke: #009e73; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_2">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="129.97125" y="29.218359" transform="rotate(-0 129.97125 29.218359)">Entity-MAPPO</text>
+   </g>
+   <g id="line2d_3">
+    <path d="M 203.350781 12.136641 
+L 212.350781 12.136641 
+L 221.350781 12.136641 
+" style="fill: none; stroke-dasharray: 4.995,2.16; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.35"/>
+    <defs>
+     <path id="m7acd716d18" d="M -2 2 
+L 2 2 
+L 2 -2 
+L -2 -2 
+z
+" style="stroke: #d55e00; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#m7acd716d18" x="212.350781" y="12.136641" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_3">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="226.300781" y="15.286641" transform="rotate(-0 226.300781 15.286641)">PLATO-faithful</text>
+   </g>
+   <g id="line2d_4">
+    <path d="M 203.350781 26.068359 
+L 212.350781 26.068359 
+L 221.350781 26.068359 
+" style="fill: none; stroke-dasharray: 4.995,2.16; stroke-dashoffset: 0; stroke: #e69f00; stroke-width: 1.35"/>
+    <defs>
+     <path id="m3655e3c380" d="M 0 2.828427 
+L 2.828427 0 
+L 0 -2.828427 
+L -2.828427 0 
+z
+" style="stroke: #e69f00; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#m3655e3c380" x="212.350781" y="26.068359" style="fill: #e69f00; stroke: #e69f00; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="226.300781" y="29.218359" transform="rotate(-0 226.300781 29.218359)">Graph-MAPPO</text>
+   </g>
+   <g id="line2d_5">
+    <path d="M 301.314375 12.136641 
+L 310.314375 12.136641 
+L 319.314375 12.136641 
+" style="fill: none; stroke-dasharray: 8.64,2.16,1.35,2.16; stroke-dashoffset: 0; stroke: #cc79a7; stroke-width: 1.35"/>
+    <defs>
+     <path id="m9c60dc7821" d="M -0.666667 2 
+L 0.666667 2 
+L 0.666667 0.666667 
+L 2 0.666667 
+L 2 -0.666667 
+L 0.666667 -0.666667 
+L 0.666667 -2 
+L -0.666667 -2 
+L -0.666667 -0.666667 
+L -2 -0.666667 
+L -2 0.666667 
+L -0.666667 0.666667 
+z
+" style="stroke: #cc79a7; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#m9c60dc7821" x="310.314375" y="12.136641" style="fill: #cc79a7; stroke: #cc79a7; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_5">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="324.264375" y="15.286641" transform="rotate(-0 324.264375 15.286641)">MOHITO-official</text>
+   </g>
+   <g id="line2d_6">
+    <path d="M 301.314375 26.068359 
+L 310.314375 26.068359 
+L 319.314375 26.068359 
+" style="fill: none; stroke-dasharray: 1.35,2.2275; stroke-dashoffset: 0; stroke: #4d4d4d; stroke-width: 1.35"/>
+    <defs>
+     <path id="m10721092cb" d="M -1 2 
+L 0 1 
+L 1 2 
+L 2 1 
+L 1 0 
+L 2 -1 
+L 1 -2 
+L 0 -1 
+L -1 -2 
+L -2 -1 
+L -1 0 
+L -2 1 
+z
+" style="stroke: #4d4d4d; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#m10721092cb" x="310.314375" y="26.068359" style="fill: #4d4d4d; stroke: #4d4d4d; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="text_6">
+    <text style="font: 9px 'Microsoft YaHei', 'SimHei', 'Noto Sans CJK SC', 'Arial', sans-serif; text-anchor: start" x="324.264375" y="29.218359" transform="rotate(-0 324.264375 29.218359)">Rolling-horizon MILP</text>
+   </g>
+  </g>
+ </g>
+</svg>

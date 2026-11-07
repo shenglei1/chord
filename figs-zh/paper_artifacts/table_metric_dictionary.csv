@@ -1,0 +1,9 @@
+metric,label,direction,unit,definition
+service_level,服务水平,max,ratio,"deliveries / max(orders_created - cancellations, 1)"
+throughput_per_100_steps,记录吞吐量,max,deliveries per 100 simulator steps,"100 * deliveries / max(episode_steps, 1)"
+deadline_miss_rate,截止期违约率,min,ratio,"deadline_misses / max(orders_created - cancellations, 1)"
+mean_flow_time,平均流动时间,min,simulator steps,"sum(delivery_time - creation_time + 1) / max(deliveries, 1)"
+contention_per_delivery,每次交付的重复提案,min,proposal conflicts per delivery,"rejected same-role, same-task proposals / max(deliveries, 1)"
+travel_per_delivery,每次交付的移动量,min,grid moves per delivery,"agent grid moves / max(deliveries, 1)"
+utilization,智能体利用率,context,ratio,busy active-agent steps / active-agent steps
+unserved_orders,终止时未服务订单,min,orders,active tasks remaining at episode termination

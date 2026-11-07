@@ -1,0 +1,36 @@
+{
+  "statistical_unit": "independent policy-training seed",
+  "training_seeds": [
+    1,
+    45,
+    789,
+    2027,
+    4096,
+    8191
+  ],
+  "source_files_are_read_only": true,
+  "formats": [
+    "pdf",
+    "svg",
+    "png"
+  ],
+  "source_sha256": {
+    "results/mechanism_controls/aggregate/aggregate_by_training_seed.csv": "531f819efbdebaefdb6221e757cb8bbf3a7bbd73a4d47dcfc9387eb368846f29",
+    "results/mechanism_controls/aggregate/paired_differences.csv": "4ce6e58abc63d0323031a5cdb35cd89cce7668c9cf36c139934cb6d0d789ebd8",
+    "results/sensitivity/chord/aggregate/aggregate_by_training_seed.csv": "1e340a2c4edfefc90d1f09248eef391497371b418589bc02d1c25dd2a9d06d4f"
+  },
+  "figures": [
+    "FIG4A",
+    "FIG4B",
+    "FIG4C",
+    "FIG4D",
+    "FIG7A",
+    "FIG7B",
+    "FIG7C",
+    "FIG7D",
+    "FIG11A",
+    "FIG11B",
+    "FIG12A",
+    "FIG12B"
+  ]
+}

@@ -1,0 +1,13 @@
+figure,source,filter,statistic
+FIG4A,mechanism_controls/aggregate/aggregate_by_training_seed.csv,scenario=unseen_small; metric=service_level,mean and 95% CI across six training-seed means
+FIG4B,mechanism_controls/aggregate/aggregate_by_training_seed.csv,scenario=unseen_small; metric=throughput_per_100_steps,mean and 95% CI across six training-seed means
+FIG4C,mechanism_controls/aggregate/aggregate_by_training_seed.csv,scenario=unseen_small; metric=deadline_miss_rate,mean and 95% CI across six training-seed means
+FIG4D,mechanism_controls/aggregate/aggregate_by_training_seed.csv,scenario=unseen_small; metric=mean_flow_time,mean and 95% CI across six training-seed means
+FIG7A,sensitivity/chord/aggregate/aggregate_by_training_seed.csv,sweep=breakdown; metric=service_level; algorithm=chord_mappo,mean and 95% CI across six fixed trained policies
+FIG7B,sensitivity/chord/aggregate/aggregate_by_training_seed.csv,sweep=demand; metric=service_level; algorithm=chord_mappo,mean and 95% CI across six fixed trained policies
+FIG7C,sensitivity/chord/aggregate/aggregate_by_training_seed.csv,sweep=breakdown; metric=throughput_per_100_steps; algorithm=chord_mappo,mean and 95% CI across six fixed trained policies
+FIG7D,sensitivity/chord/aggregate/aggregate_by_training_seed.csv,sweep=demand; metric=throughput_per_100_steps; algorithm=chord_mappo,mean and 95% CI across six fixed trained policies
+FIG11A,mechanism_controls/aggregate/paired_differences.csv,"metric=service_level; baselines=entity_cahr,graph_cahr; scenarios=Core6",paired CHORD-minus-control mean and 95% CI over six training seeds; lower-is-better metrics sign-reversed
+FIG11B,mechanism_controls/aggregate/paired_differences.csv,"metric=throughput_per_100_steps; baselines=entity_cahr,graph_cahr; scenarios=Core6",paired CHORD-minus-control mean and 95% CI over six training seeds; lower-is-better metrics sign-reversed
+FIG12A,mechanism_controls/aggregate/paired_differences.csv,"metric=deadline_miss_rate; baselines=entity_cahr,graph_cahr; scenarios=Core6",paired CHORD-minus-control mean and 95% CI over six training seeds; lower-is-better metrics sign-reversed
+FIG12B,mechanism_controls/aggregate/paired_differences.csv,"metric=mean_flow_time; baselines=entity_cahr,graph_cahr; scenarios=Core6",paired CHORD-minus-control mean and 95% CI over six training seeds; lower-is-better metrics sign-reversed
