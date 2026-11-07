@@ -1,9 +1,0 @@
-metric,label,direction,unit,definition
-service_level,Service level,max,ratio,"deliveries / max(orders_created - cancellations, 1)"
-throughput_per_100_steps,Logged throughput / 100 ticks,max,deliveries per 100 simulator steps,"100 * deliveries / max(episode_steps, 1)"
-deadline_miss_rate,Deadline-miss rate,min,ratio,"deadline_misses / max(orders_created - cancellations, 1)"
-mean_flow_time,Mean flow time,min,simulator steps,"sum(delivery_time - creation_time + 1) / max(deliveries, 1)"
-contention_per_delivery,Rejected duplicate proposals / delivery,min,proposal conflicts per delivery,"rejected same-role, same-task proposals / max(deliveries, 1)"
-travel_per_delivery,Travel / delivery,min,grid moves per delivery,"agent grid moves / max(deliveries, 1)"
-utilization,Agent utilization,context,ratio,busy active-agent steps / active-agent steps
-unserved_orders,Unserved orders at horizon,min,orders,active tasks remaining at episode termination
