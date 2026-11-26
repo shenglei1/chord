@@ -108,10 +108,8 @@ corresponding `paper_artifacts/` and `semantic_analysis/` subdirectories.
 - `open_hyper_warehouse/`: simulator, models, training, evaluation, and analysis.
 - `configs/`: retained Core-6, ablation, and sensitivity configurations.
 - `scripts/`: experiment and English plotting entry points.
-- `scripts-zh/`: Chinese plotting entry points.
 - `results/`: current paper checkpoints, evaluations, and aggregate statistics.
 - `figs/`: generated English figures.
-- `figs-zh/`: generated Chinese figures.
 - `external/mohito-public/wildfire/mohito/`: pinned MOHITO runtime package used by the adapter.
 
 The external revision is recorded in
